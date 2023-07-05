@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main_layout')
-  <p><b>New To do</b></p>
+  <p><b>Create A New To do</b></p>
   @if($errors->any())
   <div class="alert alert-danger d-flex align-items-center" role="alert">
     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>

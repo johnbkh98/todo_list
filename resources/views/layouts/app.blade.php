@@ -10,13 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/">View Todos</a>
+          <a class="nav-link active" href="/">My Todo Lists</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="create">Create</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="/create">Create</a>
         </li>
       </ul>
     </div>

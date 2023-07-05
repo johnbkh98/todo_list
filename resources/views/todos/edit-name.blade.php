@@ -18,6 +18,5 @@
       <button type="sumbit" class="btn btn-primary">Add Todo</button>
     </div>
   </form>
-  <script src="" async defer></script>
 @endsection()
 

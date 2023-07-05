@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('todo', function (Blueprint $table) {
+        Schema::create('todo_item', function (Blueprint $table) {
             $table->id();
-            $table->string('todo');
-            $table->timestamp('completed_at')->nullable();
-            $table->integer('todo_item_id');
+            $table->unsignedBigInteger('todo_id');
+            $table->string('todo_item');
             $table->timestamps();
+
+            $table->foreign('todo_id')->references('id')->on('todo')->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todo');
+        Schema::dropIfExists('todo_item');
     }
 };
