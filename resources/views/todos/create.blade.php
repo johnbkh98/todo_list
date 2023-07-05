@@ -13,7 +13,7 @@
   <form method='POST' action='/create'>
     <div class='form-group'>
       @csrf
-      <input name='todo' placeholder='Enter a new to do' class='form-control mb-2'/>
+      <input name='todo' placeholder='Enter a new to do' class='form-control mb-2' required/>
       <button type="sumbit" class="btn btn-primary">Add Todo</button>
     </div>
   </form>

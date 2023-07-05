@@ -14,7 +14,7 @@
     <div class='form-group'>
       @method('PATCH')
       @csrf
-      <input name='todo' placeholder='Enter new name' class='form-control mb-2'/>
+      <input name='todo' placeholder='Enter new name' class='form-control mb-2' required/>
       <button type="sumbit" class="btn btn-primary">Add Todo</button>
     </div>
   </form>
