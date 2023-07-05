@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('todo', function (Blueprint $table) {
-            $table->id();
-            $table->string('todo');
-            $table->timestamp('completed_at')->nullable();
-            $table->timestamps();
+        Schema::table('todo', function (Blueprint $table) {
+            // $table->timestamp('completed_at')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todo');
+        Schema::table('todo', function (Blueprint $table) {
+            // $table->dropColumn(['completed_at']);
+        });
     }
 };

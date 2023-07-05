@@ -1,14 +1,25 @@
 @extends('layouts.app')
 
 @section('main_layout')
+
 	<p>My Todo List</p>
 	<div class='container'>
 		@foreach($all_todos as $todo)
-		<div class='mb-2 card'>
+		<div class='mb-2 card {{ $todo->isComplete() ? " border-success" : ""  }}'>
 			<div class='card-body'>
 				<p> {{ $todo->todo }} </p>
-				<span><a class='btn btn-success sm'>Mark Complete</a></span>
-				<a class='ml-2'><i class="fa fa-trash" aria-hidden="true"></i></a>
+				<span>
+				@if($todo->isComplete())
+					<span class="badge rounded-pill bg-success">Todo Comepleted<i class="fa fa-check" aria-hidden="true"></i></span>
+				@else
+					<form method='POST' action="/completed/{{ $todo->id }}">
+						@method('PATCH')
+						@csrf
+						<button type='submit' class='btn btn-success sm'>Mark Complete</button>
+					</form>
+				@endif
+					<a class='ml-2'><i class="fa fa-trash" aria-hidden="true"></i></a>
+				</span>
 			</div>
 		</div>
 			@endforeach

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class TodoController extends Controller
 {
   public function index () {
-    $all_todos = Todo::get();
+    $all_todos = Todo::orderBy('completed_at')->get();
     return view('todos.todoIndex', ['all_todos' => $all_todos]);
   }
   public function createView () {
@@ -17,12 +17,18 @@ class TodoController extends Controller
   }
 
   public function store () {
-    $todo = Todo::create(['todo' => request('todo')]);
+    Todo::create(['todo' => request('todo')]);
     return redirect('/');
   }
 
-  // create a todo list
-  // view list of todos
+  public function markComplete ($id) {
+    $todo = Todo::where('id', $id)->first();
+    $todo->completed_at = now();
+    $todo->save();
+    return redirect('/');
+  }
+
+
   // rename todolist
   // delete todolist
   // add todo item  to a todo list
