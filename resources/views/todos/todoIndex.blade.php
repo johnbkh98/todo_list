@@ -50,7 +50,7 @@
 			</div>
 		</div>
 			@endforeach
-		<button class="btn btn-primary" onclick="location.href='/create'" type="button"> Add TODO</button>
+		<button class="btn btn-primary m-3" onclick="location.href='/create'" type="button"> Add TODO</button>
 	</div>
 
 @endsection()

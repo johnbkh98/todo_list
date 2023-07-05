@@ -8,6 +8,17 @@
       @foreach($todo_items as $item)
         <li class="list-group-item justify-content-between"> 
           {{ $item->todo_item }} 
+
+        @if($item->isComplete())
+					<span class="mb-2 badge rounded-pill bg-success">completed<i class="fa fa-check" aria-hidden="true"></i></span>
+				@else
+					<form method='POST' action="/completed-item/{{ $item->id }}">
+						@method('PATCH')
+						@csrf
+						<button type='submit' class='btn btn-success sm'>Mark Complete</button>
+					</form>
+				@endif
+
           <form method='POST' action="/delete-item/{{ $item->id }}">
 						@method('DELETE')
 						@csrf

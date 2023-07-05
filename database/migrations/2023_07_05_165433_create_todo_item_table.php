@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('todo_id');
             $table->string('todo_item');
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
 
             $table->foreign('todo_id')->references('id')->on('todo')->onDelete('cascade');

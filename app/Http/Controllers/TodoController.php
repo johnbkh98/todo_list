@@ -30,7 +30,7 @@ class TodoController extends Controller
 
   public function todoItemsView ($id) {
     $todo_name = Todo::where('id', $id)->first()->todo;
-    $todo_items = TodoItem::where('todo_id', $id)->get();
+    $todo_items = TodoItem::where('todo_id', $id)->orderBy('completed_at')->get();
     return view('todos.todo-items', ['todo_items' => $todo_items, 'todo_name' => $todo_name]);
   }
 
@@ -83,5 +83,12 @@ class TodoController extends Controller
     $todo->completed_at = now();
     $todo->save();
     return redirect('/');
+  }
+
+  public function markItemAsComplete ($id) {
+    $item = TodoItem::where('id', $id)->first();
+    $item->completed_at = now();
+    $item->save();
+    return back();
   }
 }

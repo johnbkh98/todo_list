@@ -12,6 +12,7 @@ Route::get('/view-items/{id}', 'TodoController@todoItemsView');
 Route::post('/create', 'TodoController@store');
 Route::post('/add-item{id}', 'TodoController@addItem');
 Route::patch('/completed/{id}', 'TodoController@markComplete');
+Route::patch('/completed-item/{id}', 'TodoController@markItemAsComplete');
 Route::patch('/edit-name/{id}', 'TodoController@editName');
 Route::delete('/delete/{id}', 'TodoController@delete');
 Route::delete('/delete-item/{id}', 'TodoController@deleteItem');
