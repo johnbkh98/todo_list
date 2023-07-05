@@ -12,8 +12,14 @@ class TodoController extends Controller
     $all_todos = Todo::orderBy('completed_at')->get();
     return view('todos.todoIndex', ['all_todos' => $all_todos]);
   }
+
   public function createView () {
     return view('todos.create');
+  }
+
+  public function editNameView ($id) {
+    $todo = Todo::where('id', $id)->first();
+    return view('todos.edit-name', ['todo' => $todo]);
   }
 
   public function store () {
@@ -22,6 +28,18 @@ class TodoController extends Controller
     ]);
     
     Todo::create(['todo' => request('todo')]);
+    return redirect('/');
+  }
+
+  public function editName ($id) {
+    request()->validate([
+      'todo' => 'required|string'
+    ]);
+    $new_todo_name  = request('todo');
+
+    $todo = Todo::where('id', $id)->first();
+    $todo->todo = $new_todo_name;
+    $todo->save();
     return redirect('/');
   }
 
@@ -42,7 +60,6 @@ class TodoController extends Controller
 
 
   // rename todolist
-  // delete todolist
   // add todo item  to a todo list
   // see all todo on a todo list
   // delete todo item from a todo list
