@@ -7,7 +7,7 @@
     <div class='form-group'>
       @csrf
       <input name='todo_item' placeholder='Enter a todo item' class='form-control mb-2' required/>
-      <button type="sumbit" class="btn btn-primary">Add Todo</button>
+      <button type="sumbit" class="btn btn-primary">Add new Todo</button>
     </div>
   </form>
 

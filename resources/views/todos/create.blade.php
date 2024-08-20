@@ -14,7 +14,7 @@
     <div class='form-group'>
       @csrf
       <input name='todo' placeholder='Enter a new to do' class='form-control mb-2' required/>
-      <button type="sumbit" class="btn btn-primary">Add Todo</button>
+      <button type="sumbit" class="btn btn-primary">Add new Todo</button>
     </div>
   </form>
   <script src="" async defer></script>

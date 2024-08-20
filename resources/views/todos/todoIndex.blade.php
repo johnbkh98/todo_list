@@ -2,8 +2,11 @@
 
 @section('main_layout')
 
-	<h3>My Todo List</h3>
+	<h3>My Todo Lists</h3>
 	<div class='container'>
+    @if(!$all_todos->count())
+      <p>Please add some to do lists</p>
+    @endif
 		@foreach($all_todos as $todo)
 		<div class='mb-2 card {{ $todo->isComplete() ? " border-success" : ""  }}'>
 			<div class='card-body'>
@@ -50,7 +53,7 @@
 			</div>
 		</div>
 			@endforeach
-		<button class="btn btn-primary m-3" onclick="location.href='/create'" type="button"> Add TODO</button>
+		<button class="btn btn-primary m-3" onclick="location.href='/create'" type="button"> Add new TODO</button>
 	</div>
 
 @endsection()
